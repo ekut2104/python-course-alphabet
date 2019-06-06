@@ -1,0 +1,16 @@
+{#  Inherit from layout #}
+{% extends "layout.html" %}
+{% from 'macros.html' import movie_card with context %}
+
+{% block content %}
+    <h1 class="my-5 py-5 text-center">Movies list</h1>
+    <div class="row">
+        {% for i in movies %}
+            {% if i["year"]|int >= 2010 %}
+            {{ movie_card(i) }}
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
